@@ -1,0 +1,17 @@
+
+<div id="create-form" style=""></div>
+<div id="alert"></div>
+<h1>Listing Tasks</h1>
+<table id="tasks" class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Privacy</th>
+    <th>Completed</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<% @tasks.each do |task| %>
+  <%= render :partial => 'task', :locals => {:task => task}%>  
+<% end %>
+</table>

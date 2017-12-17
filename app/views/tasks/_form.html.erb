@@ -1,0 +1,7 @@
+<h1>Create a Task</h1>
+  <%= simple_form_for @task, remote: true do |f| %>
+    <%= f.input :name%>
+    <%= f.input :description%>
+    <%= f.input :privacy, collection: Hash[Task.privacies.map {|k,v| [k.split('_').first.capitalize,k] }]%>
+    <%=f.submit "Create Task"%>
+<%end%>

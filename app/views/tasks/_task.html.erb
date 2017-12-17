@@ -1,0 +1,12 @@
+<tr id=task_"<%= task.id %>">
+	<td><%= task.name %></td>
+	<td><%= task.description %></td>
+	<td><%= task.privacy.split('_').first.capitalize %></td>
+	<td><%= task.complete %></td>
+	<!-- <td><%= link_to 'Show', task_path(task) %></td> -->
+	<%if current_user == task.user %>
+	<td><%= link_to Task.check_status(task), task_path(task), :remote => true, :method => :put %></td>
+	<td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
+	<%end%>
+</tr>
+
