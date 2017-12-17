@@ -17,6 +17,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'selenium-webdriver'
 
+group :production do 
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'
