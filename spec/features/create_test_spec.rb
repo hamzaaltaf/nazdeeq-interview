@@ -1,15 +1,14 @@
 require_relative '../rails_helper'
 require_relative '../support/new_task_form.rb'
 require_relative '../support/login_form.rb'
-feature "Create a task", :js => true do 
-	let(:new_task_form) {NewTaskForm.new}
-	let(:login_form) {LoginForm.new}
-	let(:user) {FactoryBot.create(:user)}
 
+feature "Create a task", javascript: true do
+	let(:new_task_form) {NewTaskForm.new}
+	let(:login_in_form) {LoginForm.new}
+	let(:user) {FactoryBot.create(:test_user)}
+	
 	before do
-		visit('/users/sign_in')
-		login_as(user, :scope => :user, :run_callbacks => false)
-		sleep 4 
+		login_in_form.visit_page.login_as(user)
 	end
 	
 	it "creates task with valid data" do 
@@ -18,7 +17,7 @@ feature "Create a task", :js => true do
         expect(Task.last.name).to eq('My first task')
 	end
 	
-	it "does not creates task with invalid data" do 
+	it "does not create task with invalid data" do 
 		new_task_form.visit_page.fill_in_with(:name => '').submit
 		expect(page).to have_content("can't be blank")
     end

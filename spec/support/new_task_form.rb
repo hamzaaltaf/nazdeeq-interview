@@ -14,7 +14,8 @@ class NewTaskForm
     end
     
     def submit
-        click_on("Create Task")
+        click_link_or_button('create_task')
+        # click_on("Create Task")
         self
     end
     

@@ -12,8 +12,4 @@ class Task < ApplicationRecord
 	def self.check_status(task)
 		task.complete ? 'Mark Incomplete' : 'Mark Complete'
 	end
-
-	def self.owner?(task)
-		current_user == task.user ? true : false
-	end
 end

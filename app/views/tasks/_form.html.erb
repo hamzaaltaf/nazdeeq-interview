@@ -3,5 +3,5 @@
     <%= f.input :name%>
     <%= f.input :description%>
     <%= f.input :privacy, collection: Hash[Task.privacies.map {|k,v| [k.split('_').first.capitalize,k] }]%>
-    <%=f.submit "Create Task"%>
+    <%=f.submit "Create Task", id: 'create_task'%>
 <%end%>
