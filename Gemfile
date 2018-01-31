@@ -16,6 +16,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'selenium-webdriver'
+gem 'groupdate'
+gem "chartkick"
+gem 'jquery-ui-rails'
+gem 'filterrific'
+gem 'seed_dump'
 
 group :production do 
   gem 'rails_12factor'

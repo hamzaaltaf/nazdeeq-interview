@@ -1,7 +1,10 @@
 <h1>Create a Task</h1>
-  <%= simple_form_for @task, remote: true do |f| %>
-    <%= f.input :name%>
-    <%= f.input :description%>
-    <%= f.input :privacy, collection: Hash[Task.privacies.map {|k,v| [k.split('_').first.capitalize,k] }]%>
-    <%=f.submit "Create Task", id: 'create_task'%>
-<%end%>
+  <div class="">
+  	<%= simple_form_for @task, remote: true do |f| %>
+    	<%= f.input :description, :class => "form-control"%>
+	    <%= f.input :environment, collection: Hash[Task.environments.map {|k,v| [k.split('_').first.capitalize,k] }]%>
+	    <%= f.input :product_type, collection: Hash[Task.product_types.map {|k,v| [k.split('_').first.capitalize,k] }]%>
+	    <%=f.submit "Create Task", id: 'create_task'%>
+	<%end%>	
+  </div>
+  

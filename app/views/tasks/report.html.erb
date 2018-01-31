@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="col-xs-8">
+		<%= column_chart(Task.get_total_tasks_data,stacked: true, label: "Value", colors:['#000080'])  %>
+	</div>
+	<div class="col-sm-4">
+		Total Hours in Sprint: <strong>392</strong> <br/>
+		Holidays:              <strong>1</strong><br>
+		Total Hours Spent on Bugs: <strong><%= Task.total_hours%></strong> <br/>
+		Percentage of hours spent on fixing bugs <strong><%= Task.get_percentage %></strong>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<h4>All Developers Stats <span class="description">(Solved no. of bugs)</span></h4>
+	<div class="col-sm-8">
+		<%= column_chart(Task.developers_chart_data, colors: ['brown'],
+		  library: {
+		    tooltip: {
+		      pointFormat: 'Times Bought: <b>{point.y}</b>'
+		    }})
+		%>
+	</div>
+	
+	<div class="col-sm-4">
+		<table class="table table-stripped">
+			<th>Developer</th>
+			<th>Scores</th>
+		<% @scores = Task.top_scorrer%>
+		<%@scores.keys.each do |score_key|%>
+			<tr>
+				<td><%= score_key %></td>
+				<td><%= @scores[score_key]%></td>
+			</tr>
+		<%end%>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<%@colors= ['#cd5c5c', '#633700', 'grey', '#ff9326', 'green', 'maroon', '#008080']%>
+	<% i = 0%>
+	<br><br/>
+	<h4>Per Developer Stats:</h4>
+	<% User.all.each do |user|%>
+	<!-- <div class=""> -->
+	<%if user.email != "admin@augmentcare.com"%>
+			<div class="col-md-3">
+				
+				<center><h6 style="border-bottom: 1px solid #f2f2f2"><%= user.email.remove('@augmentcare.com').humanize%></h6></center>
+				<%= column_chart(Task.get_user_total_tasks_data(user.id), colors: [@colors[i]] )%>
+				<%i = i + 1%>
+			</div>
+		<%end%>
+	<%end%>
+</div>
+<!-- </div> -->

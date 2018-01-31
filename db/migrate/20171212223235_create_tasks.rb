@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.integer :privacy
-      t.boolean :complete, default: false
+      t.boolean :complete, :integer
       t.timestamps
     end
   end

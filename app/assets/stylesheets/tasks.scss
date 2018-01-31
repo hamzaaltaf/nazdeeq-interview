@@ -1,3 +1,19 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-control {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.scores {
+	padding-left: 2em;
+	font-size: 16px;
+	text-align: right;
+	float: right;
+}
+
+.col-sm-4 {
+	border-left: 1px solid #000;
+}

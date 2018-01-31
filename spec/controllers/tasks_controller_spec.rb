@@ -106,7 +106,7 @@ RSpec.describe TasksController, type: :controller do
         
         it "creates data in database" do
           expect {
-            xhr :post, :create, params: {task: valid_task}
+            xhr :post, :create,  
             }.to change(Task, :count).by(1)
           end
         end

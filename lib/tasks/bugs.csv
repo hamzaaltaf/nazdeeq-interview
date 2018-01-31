@@ -1,0 +1,72 @@
+Description,Category,Level,"Product Type(Core, Corporate)",Reported At,Reported by,Developer Status,"Environment (Demo, Live, Dev)",assigned to,QA Status,Assigned at,Solved at,Comments
+offline appointment prescription is not being saved,0,3,0,24-January-2018,hassan,0,0,1,4,11:15,2:30,
+Remove button is not working in lab list,3,2,0,24-January-2018,noureen,Delayed,0,,,,,
+Lab orders - Didn't show name of doctor in prescribed by field ,3,3,0,24-January-2018,mahak,0,1,1,4,1:30,1:35,
+offline consultation start/end buttons,0,2,0,25-January-2018,noureen,0,0,1,4,3:00,3:55,
+Doctor Profile medical practices duplication on front end ,7,1,0,25-Jan-2018,Hyder,0,1,6,4,4:25,5:20,
+Multiple duplicate locations appearing in the doctor slots,7,1,0,25-Jan-2018,Hydr,0,1,2,4,5:00,5:50,has been pushed to live 
+Reciptionist - Patient appointment history is not working (search results ) https://www.useloom.com/share/68e0eeca1de34391972e001f721082db,5,2,3,25-January-2018,noureen,0,0,4,0,6:00,6:15,
+Corporate (hr) : I have created an appointment free for company and it shows successfull message but didn't show any appointment ,6,2,1,Jan 23,mahak,0,1,7,4,5:20,7:05,Will be released in the next release
+"Patient account: This dialog box that opens up does not close. If i click on ""Proceed"" again, it deducts payment again. Only disappears if i click elsewhere on the screen.",8,1,0,24-Jan-2018,mahak,0,1,5,4,10:00,10:30,
+Notifiation counter back end,1,3,0,25-Jan-2018,hassan,0,0,1,4,11:30,11:35,
+Notification counter bug (front end),1,3,0,26-Jan-2018,hassan,0,0,3,4,11:36,11:40,
+Disable the action buttons till getting success response while adding a dependent,6,2,1,Jan 23,hashaam,0,1,5,4,11:50,11:58,
+Lab order flow error(again we can place same order),3,3,1,25- Jan-2018,noureen,0,0,1,4,10:00 AM,12:05,
+repitition of reminders even when the appointment time has started or video call has started,0,4,0,26- Jan-2018,,0,0,4,4,2:22 PM,14:44,Yes 
+Reciptionist - After getting search result it should have any back button ,5,1,3,26- Jan-2018,mahak,0,0,6,4,2:15,3:00,
+"CorporateCare (employee): I've booked an appointment, paid from my company account, and then cancelled it.
+However, when when I checked my balance, it was still deducted.",6,3,1,26- Jan-2018,hashaam,0,1,2,4,12:00,4:00,Problem was caused by changing the way payment was being made
+Without filling personal notes,0,3,0,26- Jan-2018,,0,0,5,0,1:00,4:00,
+receptionist dashbord listing error,5,4,3,27- Jan-2018,noureen,0,0,1,4,3:50,5:00,
+Patients details page  shows nothing,9,3,0,28- Jan-2018,wajih,0,0,5,4,2:00,4:00,
+show errors on password reset,10,2,0,29- Jan-2018,mehr,0,0,6,4,3:00,4:25,
+"When I checked my claims -> Digital, I saw that it wasn't seen as cancelled. Moreover, the ""Accepted"" is being repeated",6,4,1,25- Jan-2018,mahak,0,1,2,4,12:00,6:00,
+"Corporate (hr) : Can't create dependents , issue in relationship and sometimes save button is also not working",6,3,1,23-January-2018,,0,1,2,4,2:00,6:00,She didn't reported. She direcely solved it 
+Remove button should not be there when we have already placed order ,3,2,0,Jan-2018,mahak,0,1,1,4,2:15,2:30,
+"Can't reset my password on demo,only loading is showing. Look at video
+
+https://www.useloom.com/share/9ed9dd6c58be48b18763292da1a31134(2:34PM)",10,2,0,Jan-2018,Noureen,0,0,3,4,4:00,4:20,
+User role ids conflict when retreiving the notifications,1,2,0,Jan-2018,,0,0,1,4,3:00,4:30,
+"Video consultation is not working it is giving an error on dev ""Error Getting Connection""",0,4,0,Jan-2018,samran,0,2,4,4,1:00,3:00,
+Rceived online push notification for offline appointment on demo(2:48PM),1,3,0,Jan-2018,Noureen,0,0,1,4,3:00,4:30,
+Remove status column from sms header,11,1,3,Jan-2018,noureen,0,0,,4,1:00,1:40,
+Confirmation message should show on screen or success and error message should show on screen,0,2,0,Jan-2018,noureen,0,0,5,4,2:00,4:30,
+Popup for book appointment should close after clicking on book appointment button(Receptionist),5,2,0,Jan-2018,noureen,0,0,5,4,2:00,4:30,
+Notification counter error both patient and doctor side(demo),1,3,0,Jan-2018,noureen,0,0,1,4,3:00,4:30,
+Patient didn't receive soap notes and prescription just received push notification(demo),1,3,0,Jan-2018,noureen,0,0,1,4,4:00,5:40,
+"PKR , address and contact number is missing in lab order slip",3,1,0,Jan-2018,noureen,0,0,1,4,11:00,11:20,
+Received multiple emails on creating account,10,3,0,Jan-2018,mahak,1,1,,,,,
+We need to refresh the page to see newly booked appointment ,5,4,3,Jan-2018,mahak,0,0,4,4,11:30,2:10,
+"Patient Account: Can't see any appointments in pending slot,(the screen which opens by default) can only see it when i go in ""all"". Approved tab is working fine.",9,3,0,Jan-2018,mahak,0,0,1,4,12:25,2:20,
+Email to management (booking confirmation) has no data ,0,2,0,Jan-2018,wajih,1,1,,0,,,This will be resolved in next sprint
+No messages on doctor phone upon appointment request,11,3,0,27 January,Adnan,0,0,1,4,12:45,1:10,
+Notifications bug,1,3,0,27 January,hassan,0,0,1,4,3:30,6:30,This will be resolved in this sprint
+"Doctor Account: (As a patient, I only booked an online appointment) On my doctor account, I received 2 notifications for online and offline. When I click on either, it redirects to same consultation page. (https://demo.augmentcare.com/consultations/details/1122) (for offline) - I tried again and same thing happened.",1,3,0,Jan-2018,mahak,0,1,1,4,3:30,6:30,This will be fixed in this sprint
+Received two notification for notes on patient side(2:53PM),1,3,0,Jan-2018,Noureen,0,1,1,4,3:00,4:30,This will be resolved in this sprint
+"saved personal notes on doctor side, also got notification of notes on patient's side but when i opened personal notes field is blank(3:03PM)",0,,0,Jan-2018,Noureen,1,0,,0,,,
+Corporate : I have created an appointment free for company and it shows successfull message but It's pop up is still there,6,1,1,26 January 2018,mahak,0,0,5,,2:20,3:00,
+When we add soap notes but didn't add medicine it didn't show anything ,0,3,0,Jan-2018,noureen,0,0,1,4,1:00,1:13,
+Newly created account shows notifications https://www.useloom.com/share/ddd667acddb74599be3082d45a99dd35,6,4,0,Jan 22,mahak,1,0,,0,,,Unable to reproduce this bug
+"Payment on ICE is not working (when i enter the details of policy for authentication, it refreshes and doesn't authenticate) ",8,4,2,24-Jan-18,Hina,delayed,0,,,,,This can be delayed as we have to work on it in next sprint
+sign in with google not working,11,5,1,24-Jan,Qamar,1,0,4,4,,,
+"On ice.augmentcare.com when a claim is filed, the time stamp is GMT, please make it PST. ",8,1,2,24-Jan-18,Hina,delayed,1,0,0,,,This can be delayed as we have to work on it in next sprint
+Mobile - Can't test this because of issues in family member relationship,,,4,Jan 22,mahak,0,1,7,4,5:00,6:00,
+Headers are not present in the google sign in mobile app,11,5,4,25-Jan-2018,Qamar,0,1,4,4,10:30:00,23:30:00,Was reported at 6:30pm so will be assigned tomorrow (26th-Jan). Its really complex
+Header (Logo) is missing on clinics page,0,3,0,Jan-2018,noureen,1,0,0,0,,,
+Remove navigation bar <setting page>,7,1,0,Jan-2018,noureen,1,0,0,0,,,
+Reciptionist - email should be pre filled if you are booking appointment for existing user ,5,2,3,Jan-2018,mahak,1,1,0,0,,,
+When we signed in as reciptionist and open email's link of patient account it shows the consultation page of that appointment,5,2,0,Jan-2018,mahak,1,1,0,0,,,
+Policy Information is not showing in add dependentt popup. Needs to referesh pag,6,2,1,Jan-2018,mehak,1,1,0,0,,,
+"When we reset password from mobile device > on clicking email link it shows ""{""success"":false,""status"":404,""errors"":[""Route Not Found""]}""",11,3,4,26 January 2018,mahak,1,0,0,0,,,
+Didn't show dependents after once we switched the role https://www.useloom.com/share/e15dc051cb9340948ad9a4c1ae7a63d6,6,3,1,26 January,mahak,1,0,0,0,,,
+Receptionist - Time of printed invoice is wrong,5,1,3,29-Jan-2018,mahak,1,0,0,0,,,
+"Receptionist - ""Appointments booked by a patient thru mobile app or web app doesn't appear in the doctor's calendar
+Appointment added on the doctor's calendar doesn't automatically appear in the calendar, page needs to be refreshed""",5,4,3,29-Jan-2018,mahak,1,0,0,0,,,Not a bug 
+Receptionist - It should not allow receptionist to book multiple appointment for the same user for any slot,5,3,3,29-Jan-2018,mahak,1,0,0,0,,,
+Receptionist - Token should be automatically reset on next day ,5,3,3,29-Jan-2018,mahak,1,0,0,0,,,
+Receptionist - It shows wrong slot timings for next week https://www.useloom.com/share/beac340fb3044ba49ac93e9dbff4da12,5,4,3,29-Jan-2018,mahak,1,0,0,0,,,
+Receptionist - Email of existing patient doesn't automatically get pre-filled in the add appointment form,5,2,3,29-Jan-2018,mahak,1,0,0,0,,,
+"Receptionist - The prefix ""Dr."" appears next to the doctor's name in some places, in other places it doesn't and on the doctor's calendar it appears twice",5,2,3,29-Jan-2018,mahak,1,0,0,0,,,
+"Receptionist - Patient Search > Search for patient > Click on patient name in search results > ""upcoming appointments"" or ""previous appointments"" no appointments appear here",5,3,3,29-Jan-2018,mahak,1,0,0,0,,,
+name of doctor not appearing on my consultations page of patient pending/accepted/completed ,7,2,0,30-January-2018,hamza,0,2,1,0,4,4:10,
+Receptionist- Do not show cancelled appointments on doc calendar,,,,,,feature,,0,,,,

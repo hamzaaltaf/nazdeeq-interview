@@ -1,12 +1,42 @@
 <tr id=task_"<%= task.id %>">
-	<td><%= task.name %></td>
-	<td><%= task.description %></td>
-	<td><%= task.privacy.split('_').first.capitalize %></td>
-	<td><%= task.complete %></td>
-	<!-- <td><%= link_to 'Show', task_path(task) %></td> -->
-	<%if current_user == task.user %>
-	<td><%= link_to Task.check_status(task), task_path(task), :remote => true, :method => :put %></td>
-	<td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
+	
+	<%if task.started_at.nil?%>
+		<td><%= link_to 'Start', start_tasks_path(id: task.id), :confirm => 'Are you sure?', :method => :put, :remote => true %></td>
+	<%else%>
+		<td>Started at <%=task.started_at.strftime("%H:%M")%> minutes</td>
+	<%end%>
+	<td width="30%"><%= task.description %></td>
+	<td><%= task.created_at %></td>
+	<%if current_user == task.user && task.complete == false %>
+		<td><%= link_to Task.check_status(task), task_path(task), :method => :put %></td>
+	<%else%>
+		<td>Completed at <%= task.completed_at.strftime("%H:%M") if !task.completed_at.nil?%></td>
+	<%end%>
+	<%if current_user.try(:admin?)%>
+		<%= simple_form_for task, :method => :put, remote: true do |f| %>
+			<td><%= f.input :priority, collection: Hash[Task.priorities.map {|k,v| [k.humanize,k] }]%></td>
+			<td><%= f.input :category, collection: Hash[Task.categories.map {|k,v| [k.humanize,k] }]%></td>
+			<td><%= f.input :dev_status, collection: Hash[Task.dev_statuses.map {|k,v| [k.humanize,k] }]%></td>
+			<td><%= f.input :qa_status, collection: Hash[Task.qa_statuses.map {|k,v| [k.humanize,k] }]%></td>
+			<td><%= f.input :assigned_to, collection: Hash[Task.assigned_tos.map {|k,v| [k.humanize,k] }]%></td>
+			<td><%= f.input :caused_by, collection: Hash[Task.caused_bies.map {|k,v| [k.split('_').first.capitalize,k] }]%></td>
+			<td><%= f.submit 'Update'%>
+				<%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+			</td>
+		<%end%>
+	<%else%>
+		<td><%= task.priority.humanize%></td>
+		<td><%= task.category %></td>
+		<td><%= task.dev_status.humanize%></td>
+		<td><%= task.qa_status.humanize%></td>
+		<td><%= task.assigned_to.humanize %></td>
+	<%end%>
+
+	<td><%= task.time_taken %></td>
+	<td><%= task.environment.humanize %></td>
+	<td><%= task.comments%></td>
+	<td><%= task.unit_tested%></td>
+	<%if current_user.try(:admin?)%>
 	<%end%>
 </tr>
 
