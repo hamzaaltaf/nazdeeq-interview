@@ -1,5 +1,39 @@
 namespace :upload_data do
   desc "Uploading excel sheet of the bugs"
+  
+  task sprint_uploader: :environment do
+    require 'csv'
+    csv_text = File.read(Rails.root.join('lib', 'tasks', 'sprint-10.csv'))
+    csv    = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+
+    csv.each do |row|
+
+      Task.transaction do 
+        if !row['Craft Story'].nil?
+          puts "row is inside #{}"
+          task = Task.new
+          task['description'] = row['Craft Story']
+          task['created_at']  = Time.now
+          task['dev_status']  = 0
+          task['assigned_to'] = row['Assigned To'].split(' ').first.downcase
+          task['qa_status'] = 4
+          task['complete'] = true
+          task['completed_at']  = row['Completed Date']
+          task['started_at']  = row['Assigned Date']
+          task['time_taken'] = ((task['completed_at'] - task['started_at'])/60).to_i if !task['completed_at'].nil? && !task['started_at'].nil?
+          task.save!
+          if task['assigned_to'] != 0
+            user = User.find_by(email: task['assigned_to'] + '@augmentcare.com')
+            if !user.nil?
+              task.update(user_id: user.id)
+            end
+          end
+        end
+      end
+    end
+  end
+
+
   task updload_bugs: :environment do
   	require 'csv'
    csv_text = File.read(Rails.root.join('lib', 'tasks', 'bugs.csv'))

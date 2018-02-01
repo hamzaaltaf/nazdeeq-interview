@@ -2,6 +2,12 @@
 <div id="create-form" style=""></div>
 <div id="alert"></div>
 <h1>Listing Tasks</h1>
+<%=sort_tasks_path%>
+<%=form_for Task.new , :url => {controller: 'tasks', action: 'sort'}, method: :post, remote: true do |f| %>
+    <%= f.select :sprint, Hash[Task.sprints.map {|k,v| [k.humanize,k] }]%>
+    <%= f.submit "Sort"%>
+<%end%>
+
 <table id="tasks" class="table table-striped">
   <tr>
     <th>Actions</th>

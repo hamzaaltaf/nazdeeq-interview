@@ -16,7 +16,7 @@ class Task < ApplicationRecord
 	enum assigned_to: [:not_assigned, :hamza, :mehak, :hassan, :rashid, :samran, :jalil, :qamar]
 	enum caused_by: [:neither, :hamza_work, :mehak_work, :samran_work, :rashid_work, :hassan_work, :jail_work]
 	enum reported_by: [:no_one, :hamza_altaf, :mehak_fatima, :hassan_siddique, :rashid_shafiq, :samran_rana, :abdul_jalil, :mahak, :noureen]
-
+	enum sprint: [:not_included, :sprint9, :sprint10, :sprint11]
 	def self.top_scorrer
 		# get completed tasks and multiply each task with the level and add scores
 		scores_hash = Hash.new

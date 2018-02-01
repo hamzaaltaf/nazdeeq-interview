@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180128105511) do
     t.integer  "level",              default: 0
     t.integer  "reported_by",        default: 0
     t.datetime "reported_at"
+    t.integer  "sprint",             default: 0
     t.index ["assigned_to"], name: "index_tasks_on_assigned_to", using: :btree
     t.index ["category"], name: "index_tasks_on_category", using: :btree
     t.index ["dev_status"], name: "index_tasks_on_dev_status", using: :btree

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   	 collection do
     	put 'start'
     	get 'report'
+    	post 'sort'
   	end
   end
 end

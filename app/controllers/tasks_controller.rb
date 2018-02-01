@@ -22,9 +22,12 @@ class TasksController < ApplicationController
   	@task = Task.find(params[:id])
   end
 
+  def sort
+    @tasks = Task.where(:sprint => params[:task][:sprint])
+  end
+
   def update
     if current_user.admin?
-      byebug
       user = User.find_by(email: params[:task][:assigned_to] + '@augmentcare.com')
       params[:task][:user_id]  = user.id
       @task.update(params.require(:task).permit(:dev_status,  :qa_status, :category, :assigned_to, :priority, :complete, :user_id, :caused_by))
@@ -83,6 +86,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-  	params.require(:task).permit(:name,  :description, :environment, :product_type)
+  	params.require(:task).permit(:name,  :description, :environment, :product_type, :sprint, :reported_by)
   end
 end
