@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128105511) do
+ActiveRecord::Schema.define(version: 20180201061045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180128105511) do
     t.index ["priority"], name: "index_tasks_on_priority", using: :btree
     t.index ["product_type"], name: "index_tasks_on_product_type", using: :btree
     t.index ["qa_status"], name: "index_tasks_on_qa_status", using: :btree
+    t.index ["sprint"], name: "index_tasks_on_sprint", using: :btree
     t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
   end
 

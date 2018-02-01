@@ -27,6 +27,5 @@ class AddColumnsToTasks < ActiveRecord::Migration[5.0]
     add_column :tasks, :level, :integer, default: 0
     add_column :tasks, :reported_by, :integer, default: 0
     add_column :tasks, :reported_at, :datetime
-    add_column :tasks, :sprint, :integer, default: 0
   end
 end
