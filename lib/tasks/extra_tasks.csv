@@ -1,0 +1,21 @@
+Tasks,Assigned To,Assigned Date,Completed Date
+"Deleted patients on live
+",Hamza Altaf,24-Jan-2018,24-Jan-2018
+Remove Dr text from doctor name (bug),Mehak Fatima,25-Jan-2018,25-Jan-2018
+Signin phone verification is not updating (bug),Jalil,26-Jan-2018,26-Jan-2018
+Testing and improving create slot and payment method,Hamza Altaf,26-Jan-2018,26-Jan-2018
+Migrated data of dr. mohsin from one account to another,Hamza Altaf,24-Jan-2018,24-Jan-2018
+[Wordpress] New homepage variant,Jalil,24-Jan-2018,24-Jan-2018
+Counter notification bug,Hamza Altaf,30-Jan-2018,30-Jan-2018
+Receptionist-Intake form UI fixes,Jalil,30-Jan-2018,30-Jan-2018
+Include doctor condition information on Dev,Mehak Fatima,30-Jan-2018,30-Jan-2018
+Enable intake form on admin panel,Mehak Fatima,30-Jan-2018,30-Jan-2018
+Changes in policy,Samran Sulheri,30-Jan-2018,30-Jan-2018
+Muliple notification bug,Hamza Altaf,30-Jan-2018,30-Jan-2018
+Can't receive notification without refreshing page bug,Hamza Altaf,30-Jan-2018,30-Jan-2018
+setting up hr in NJ in corporate,Mehak Fatima,30-Jan-2018,30-Jan-2018
+Doctor name is not appearing on patient consultation page bug,Hamza Altaf,30-Jan-2018,30-Jan-2018
+Restrict user to enter phone number ,Jalil,30-Jan-2018,30-Jan-2018
+Notification timing bug,Hamza Altaf,30-Jan-2018,30-Jan-2018
+" Dashboard States in Corporate taking alot of time for records in thousands, hence direct sql query is needed for each stats",Mehak Fatima,31-Jan-2018,31-Jan-2018
+pagination needs to be added for getting all employees both at frontend and backend,Mehak Fatima,31-Jan-2018,31-Jan-2018

@@ -1,19 +1,42 @@
-<tr id=task_"<%= task.id %>">
+<div id="filterrific_results">
 	
-	<%if task.started_at.nil?%>
-		<td><%= link_to 'Start', start_tasks_path(id: task.id), :confirm => 'Are you sure?', :method => :put, :remote => true %></td>
-	<%else%>
-		<td>Started at <%=task.started_at.strftime("%H:%M")%> minutes</td>
-	<%end%>
-	<td width="30%"><%= task.description %></td>
-	<td><%= task.created_at %></td>
-	<%if current_user == task.user && task.complete == false %>
-		<td><%= link_to Task.check_status(task), task_path(task), :method => :put %></td>
-	<%else%>
-		<td>Completed at <%= task.completed_at.strftime("%H:%M") if !task.completed_at.nil?%></td>
-	<%end%>
-	<%if current_user.try(:admin?)%>
-		<%= simple_form_for task, :method => :put, remote: true do |f| %>
+
+	<table id="tasks" class="table table-striped">
+		<tr>
+			<th>Actions</th>
+			<th>Description</th>
+			<th>Reported at</th>
+			<th>Completed</th>
+			<th>Priority</th>
+			<th>Category</th>
+			<th>Dev Status</th>
+			<th>QA Status</th>
+			<th>Assigned to</th>
+			<% if current_user.try(:admin?)%>
+			<th>Caused By</th>
+			<th>Actions</th>
+			<%end%>
+			<th>Time Taken</th>
+			<th>Environment</th>
+			<th>Comments</th>
+			<th>Unit Tested</th>
+		</tr>
+		<% @tasks.each do |task| %>
+		<tr id=task_"<%= task.id %>">
+			<%if task.started_at.nil?%>
+			<td><%= link_to 'Start', start_tasks_path(id: task.id), :confirm => 'Are you sure?', :method => :put, :remote => true %></td>
+			<%else%>
+			<td>Started at <%=task.started_at.strftime("%H:%M")%> minutes</td>
+			<%end%>
+			<td width="30%"><%= task.description %></td>
+			<td><%= task.created_at %></td>
+			<%if current_user == task.user && task.complete == false %>
+			<td><%= link_to Task.check_status(task), task_path(task), :method => :put %></td>
+			<%else%>
+			<td>Completed at <%= task.completed_at.strftime("%H:%M") if !task.completed_at.nil?%></td>
+			<%end%>
+			<%if current_user.try(:admin?)%>
+			<%= simple_form_for task, :method => :put, remote: true do |f| %>
 			<td><%= f.input :priority, collection: Hash[Task.priorities.map {|k,v| [k.humanize,k] }]%></td>
 			<td><%= f.input :category, collection: Hash[Task.categories.map {|k,v| [k.humanize,k] }]%></td>
 			<td><%= f.input :dev_status, collection: Hash[Task.dev_statuses.map {|k,v| [k.humanize,k] }]%></td>
@@ -23,20 +46,23 @@
 			<td><%= f.submit 'Update'%>
 				<%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete, :remote => true %>
 			</td>
-		<%end%>
-	<%else%>
-		<td><%= task.priority.humanize%></td>
-		<td><%= task.category %></td>
-		<td><%= task.dev_status.humanize%></td>
-		<td><%= task.qa_status.humanize%></td>
-		<td><%= task.assigned_to.humanize %></td>
-	<%end%>
+			<%end%>
+			<%else%>
+			<td><%= task.priority.humanize%></td>
+			<td><%= task.category %></td>
+			<td><%= task.dev_status.humanize%></td>
+			<td><%= task.qa_status.humanize%></td>
+			<td><%= task.assigned_to.humanize %></td>
+			<%end%>
 
-	<td><%= task.time_taken %></td>
-	<td><%= task.environment.humanize %></td>
-	<td><%= task.comments%></td>
-	<td><%= task.unit_tested%></td>
-	<%if current_user.try(:admin?)%>
-	<%end%>
-</tr>
+			<td><%= task.time_taken %></td>
+			<td><%= task.environment.humanize %></td>
+			<td><%= task.comments%></td>
+			<td><%= task.unit_tested%></td>
+			<%if current_user.try(:admin?)%>
+			<%end%>
+		</tr>
+		<% end %>
+	</table>
+</div>
 

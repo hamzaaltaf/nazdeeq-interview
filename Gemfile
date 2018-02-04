@@ -21,6 +21,7 @@ gem "chartkick"
 gem 'jquery-ui-rails'
 gem 'filterrific'
 gem 'seed_dump'
+gem 'kaminari'
 
 group :production do 
   gem 'rails_12factor'

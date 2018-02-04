@@ -2,33 +2,63 @@
 <div id="create-form" style=""></div>
 <div id="alert"></div>
 <h1>Listing Tasks</h1>
-<%=sort_tasks_path%>
-<%=form_for Task.new , :url => {controller: 'tasks', action: 'sort'}, method: :post, remote: true do |f| %>
-    <%= f.select :sprint, Hash[Task.sprints.map {|k,v| [k.humanize,k] }]%>
-    <%= f.submit "Sort"%>
-<%end%>
 
-<table id="tasks" class="table table-striped">
-  <tr>
-    <th>Actions</th>
-    <th>Description</th>
-    <th>Reported at</th>
-    <th>Completed</th>
-    <th>Priority</th>
-    <th>Category</th>
-    <th>Dev Status</th>
-    <th>QA Status</th>
-    <th>Assigned to</th>
-    <% if current_user.try(:admin?)%>
-    	<th>Caused By</th>
-    	<th>Actions</th>
-    <%end%>
-    <th>Time Taken</th>
-    <th>Environment</th>
-    <th>Comments</th>
-    <th>Unit Tested</th>
-  </tr>
-<% @tasks.each do |task| %>
-  <%= render :partial => 'task', :locals => {:task => task}%>  
-<% end %>
-</table>
+
+<%= form_for_filterrific @filterrific do |f| %>
+  <div class="row">
+  <div class="col-sm-2">
+    Sprint
+    <%= f.select(
+      :with_sprint,
+      @filterrific.select_options[:with_sprint],
+      { include_blank: '- Any -' }, :class => 'filterrific-periodically-observed ui dropdown' 
+    ) %>
+  </div>
+  <div class="col-sm-2">
+    Category
+    <%= f.select(
+      :with_category,
+      @filterrific.select_options[:with_category],
+      { include_blank: '- Any -' }, :class => 'filterrific-periodically-observed ui dropdown' 
+    ) %>
+  </div>
+  <div class="col-sm-2">
+    Assigned To
+    <%= f.select(
+      :with_assigned_to,
+      @filterrific.select_options[:with_assigned_to],
+      { include_blank: '- Any -' }, :class => 'filterrific-periodically-observed ui dropdown' 
+    ) %>
+  </div>
+
+  <div class="col-sm-2">
+    Dev Status
+    <%= f.select(
+      :with_dev_status,
+      @filterrific.select_options[:with_dev_status],
+      { include_blank: '- Any -' }, :class => 'filterrific-periodically-observed ui dropdown' 
+    ) %>
+  </div>
+
+  <div class="col-sm-2">
+    QA Status
+    <%= f.select(
+      :with_qa_status,
+      @filterrific.select_options[:with_qa_status],
+      { include_blank: '- Any -' }, :class => 'filterrific-periodically-observed ui dropdown' 
+    ) %>
+  </div>
+
+ <div class="col-sm-2">
+  <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+    <%= f.submit 'Filter' %>
+  </div>
+  </div>
+    
+  <%end%>
+<br><br><br>
+<%= render :partial => 'task', :locals => {:tasks => @tasks}%>  
+<%= paginate @tasks%>

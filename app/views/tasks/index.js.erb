@@ -1,0 +1,6 @@
+<%# app/views/students/index.js.erb %>
+alert('hey')
+<% js = escape_javascript(
+  render :partial => 'task', :locals => {:tasks => @tasks} 
+) %>
+$("#filterrific_results").html("hey there");

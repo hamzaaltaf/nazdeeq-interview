@@ -13,7 +13,9 @@
 
 
 <div class="row">
-	<h4>All Developers Stats <span class="description">(Solved no. of bugs)</span></h4>
+	<h4>All Developers Stats 
+	<!-- <span class="description">(Solved no. of bugs)</span> -->
+	</h4>
 	<div class="col-sm-8">
 		<%= column_chart(Task.developers_chart_data, colors: ['brown'],
 		  library: {
@@ -38,6 +40,9 @@
 	</div>
 </div>
 
+ <!-- "cnic": "42101-9999999-1", 
+   "policy_number": "CS2017KAR-P000001",
+   "cardNumber": "C-000001-0117-1217-000001", -->
 <div class="row">
 	<%@colors= ['#cd5c5c', '#633700', 'grey', '#ff9326', 'green', 'maroon', '#008080']%>
 	<% i = 0%>

@@ -7,7 +7,23 @@ class TasksController < ApplicationController
  
   
   def index
-  
+    (@filterrific = initialize_filterrific(
+      Task,
+      params[:filterrific],
+      select_options: {
+        with_sprint: Task.sprints,
+        with_category: Task.categories,
+        with_assigned_to: Task.assigned_tos,
+        with_qa_status: Task.qa_statuses,
+        with_dev_status: Task.dev_statuses
+      } 
+    )) || return
+    @tasks = @filterrific.find.page(params[:page])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def new
@@ -20,10 +36,6 @@ class TasksController < ApplicationController
 
   def show
   	@task = Task.find(params[:id])
-  end
-
-  def sort
-    @tasks = Task.where(:sprint => params[:task][:sprint])
   end
 
   def update
@@ -72,12 +84,13 @@ class TasksController < ApplicationController
   def public_tasks
     if !current_user.nil?
       if current_user.admin
-        @tasks = Task.all.order(:id)
+        @tasks = Task.all.order(:id).page params[:page]
       else
-        @tasks = current_user.tasks
+        @tasks = current_user.tasks.order(:id).page params[:page]
       end
       else
-        @tasks = Task.all.order(:id)
+        @tasks = Task.all.order(:id).page params[:page]
+        # User.order(:name).page params[:page]
     end
   end
 

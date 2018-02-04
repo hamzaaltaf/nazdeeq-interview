@@ -3,16 +3,15 @@ namespace :upload_data do
   
   task sprint_uploader: :environment do
     require 'csv'
-    csv_text = File.read(Rails.root.join('lib', 'tasks', 'sprint-10.csv'))
+    csv_text = File.read(Rails.root.join('lib', 'tasks', 'extra_tasks.csv'))
     csv    = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 
     csv.each do |row|
-
+      puts "row is #{row.inspect}"
       Task.transaction do 
-        if !row['Craft Story'].nil?
-          puts "row is inside #{}"
+        if !row['Tasks'].nil?
           task = Task.new
-          task['description'] = row['Craft Story']
+          task['description'] = row['Tasks']
           task['created_at']  = Time.now
           task['dev_status']  = 0
           task['assigned_to'] = row['Assigned To'].split(' ').first.downcase

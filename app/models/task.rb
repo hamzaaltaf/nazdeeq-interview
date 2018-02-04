@@ -1,4 +1,7 @@
 class Task < ApplicationRecord
+	# paginator
+	paginates_per 15
+
 	belongs_to :user
 	enum privacy: [:public_access, :private_access]
 	validates :description, presence: true
@@ -17,6 +20,42 @@ class Task < ApplicationRecord
 	enum caused_by: [:neither, :hamza_work, :mehak_work, :samran_work, :rashid_work, :hassan_work, :jail_work]
 	enum reported_by: [:no_one, :hamza_altaf, :mehak_fatima, :hassan_siddique, :rashid_shafiq, :samran_rana, :abdul_jalil, :mahak, :noureen]
 	enum sprint: [:not_included, :sprint9, :sprint10, :sprint11]
+	
+	# for fileters on index page 
+	
+	filterrific(
+	    default_filter_params: { with_sprint: "", with_assigned_to: "", with_category: "", with_dev_status: "", with_qa_status: ""},
+	    available_filters:     %i[
+	      with_sprint
+	      with_assigned_to
+	      with_category
+	      with_dev_status
+	      with_qa_status
+	    ]
+	  )
+	
+	# scopes for filters
+	scope :with_sprint, lambda { |sprint|
+		return where(sprint: sprint)
+	}
+
+	scope :with_category, lambda { |cat|
+		return where(category: cat)
+	}
+
+	scope :with_assigned_to, lambda { |person|
+		return where(assigned_to: person)
+	}
+
+	scope :with_dev_status, lambda { |status|
+		return where(dev_status: status)
+	}
+
+	scope :with_qa_status, lambda { |status|
+		return where(qa_status: status)
+	}
+
+	# class methods
 	def self.top_scorrer
 		# get completed tasks and multiply each task with the level and add scores
 		scores_hash = Hash.new

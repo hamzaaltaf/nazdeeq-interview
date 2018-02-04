@@ -1,3 +1,4 @@
+//= require filterrific/filterrific-jquery
 // = require jsapi
 //= require chartkick
 //= require Chart.min
