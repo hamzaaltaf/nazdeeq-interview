@@ -1,9 +1,10 @@
+// = require jquery
 //= require filterrific/filterrific-jquery
 // = require jsapi
 //= require chartkick
 //= require Chart.min
 //= require Chart.bundle.min
-// = require jquery
+
 // = require jquery_ujs
 // = require best_in_place
 // = require turbolinks
